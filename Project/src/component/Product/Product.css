@@ -1,0 +1,97 @@
+.card-link h5 {
+    color: #2c2c2c !important;
+    text-decoration: none;
+}
+
+.card-link h5:hover {
+    color: #ffb0bd !important;
+}
+
+textarea {
+    width: 100%;
+}
+
+
+.modal-body {
+    background-color: rgb(175, 241, 197);
+    color: rgb(122, 170, 119);
+}
+
+label {
+    font-size: 1rem;
+}
+
+.text {
+    color: black;
+}
+
+.text:hover {
+    text-decoration: none;
+    color: #ffb0bd;
+}
+
+.input-group-btn {
+    background-color: #ffb0bd;
+    border-radius: 8px;
+    margin-left: 1%;
+}
+
+.input-group-btn .btn {
+    color: white;
+}
+
+.input-group-btn:hover {
+    background-color: rgb(247, 164, 189);
+}
+
+.input-group-btn .btn:hover {
+    color: white;
+}
+
+.policy {
+    color: #ffb0bd;
+}
+
+.policy:hover {
+    color: #ffb0bd;
+    text-decoration: none;
+}
+
+.add {
+    background-color: #ffb0bd;
+    border-radius: 9px;
+    height: 2.4rem;
+    text-align: center;
+}
+
+.add .addto {
+}
+
+.addto {
+    border: 0;
+    background-color: transparent;
+}
+
+.add .addto .pay {
+    color: #ffff;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.add:hover {
+    background-color: rgb(247, 164, 189);
+}
+
+.row .col-title {
+    font-size: 1.3rem;
+}
+
+.text {
+    text-decoration: none;
+    
+}
+
+.clearfix {
+    padding: 5px 0;
+}

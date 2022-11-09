@@ -1,0 +1,39 @@
+.footer{
+  background-color: #ffb0bd!important;
+}
+hr{
+  border: 1px solid #ffb0bd!important;
+  width: 100%;
+}
+.icon{
+  font-size:42px;
+}
+.icon .fa{
+  color:#ff7694;
+}  
+.row h1{
+  color: rgb(236, 164, 188);
+}
+.row .card-icon{
+font-size: 1.5rem;
+color: #fa8ea5;
+}
+.row  .card-icon:hover{
+color: #e56266;
+}
+.card-link h5{
+color: #030303!important;
+text-decoration: none;
+}
+.card-link h5:hover{
+color: #ffb0bd!important;
+}
+@media (max-width:576px){
+h1.fw-bold.display-6.text-center{
+    font-size: 1.7rem;
+    margin-top: 1rem;
+}
+}
+h1.fw-bold.display-6.text-center{
+margin-top: 1rem;
+}
