@@ -1,125 +1,285 @@
 export const listProduct = [
     {
         id:1,
-        name: "GẤU BÔNG CUTE",
-        products: [
-            {
-                id:1,
-                name_product: "Gấu bông thỏ trắng ôm đào dễ thương",
-                price: 60.000,
-                img: "https://salt.tikicdn.com/ts/product/f9/e9/44/94fa03a83324cb3782497de7e3590151.jpg",
-                product_code: "GB.A101.21030201",
-                material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
-                size: 40,
-            },
-            {
-                id:2,
-                name_product: "Gấu Bông Cute Khủng Long Má Hồng",
-                price: 160.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/e5/3c/d2/947f4eaf48cde00184d784c4b2626d2a.jpg",
-                product_code: "GB.A101.21030203",
-                material: "Vải Nhung co giãn 4 chiều, được nhồi bằng 100% bông gòn cao cấp trắng tinh khiết, với độ đàn hồi cao, KHÔNG BỊ XẸP tạo nên sự êm ái khi sử dụng",
-                size: 30,
-            },
-            {
-                id:3,
-                name_product: "Gấu bông hổ ôm bình sữa siêu dễ thương",
-                price: 150.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/87/7f/51/f28cd6d0b70a9f8069717de152b250e1.jpg",
-                product_code: "GB.A101.21030211",
-                material: "vỏ được làm từ vải co giãn 4 chiều mền mịn, không xù lông, không kích ứng",
-                size: 40,
-            },
-            {
-                id:4,
-                name_product: "Gấu bông thỏ trắng ôm đào dễ thương",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/28/63/33/94ffd7a1c061b28ec4a0cb1fde6cb962.png",
-                product_code: "GB.A101.21035201",
-                material: "Sản phẩm được làm từ chất liệu vải mềm mịn, không xù lông đặc biệt không bay màu. Bông bên trong là bông trắng mềm mại và có độ đàn hồi tốt.",
-                size: 40,
-            },
-            {
-                id:5,
-                name_product: "Gối kê cổ văn phòng gấu vàng",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/04/66/6c/56e9a718a1a7d8e91fc7203944271481.jpg",
-                product_code: "GB.A101.22035208",
-                material: "Sản phẩm được làm từ chất liệu vải mềm mịn, không xù lông đặc biệt không bay màu. Bông bên trong là bông trắng mềm mại và có độ đàn hồi tốt.",
-                size: 40,
-            },
-        ]
+        name_product: "Gấu Bông Cute Khủng Long Má Hồng",
+        price: 160.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/e5/3c/d2/947f4eaf48cde00184d784c4b2626d2a.jpg",
+        product_code: "GB.A101.21000002",
+        material: "Vải Nhung co giãn 4 chiều, được nhồi bằng 100% bông gòn cao cấp trắng tinh khiết, với độ đàn hồi cao, KHÔNG BỊ XẸP tạo nên sự êm ái khi sử dụng",
+        size: 30,
     },
     {
         id:2,
-        name: "GẤU BÔNG CHỮ U",
-        products: [
-            {
-                id:1,
-                name_product: "Gối kê cổ bông chữ U Totoro",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/13/05/a5/837755a2dc952d2eda62283052e4b464.jpg",
-                product_code: "GB.A101.25035251",
-                material: "chất liệu vỏ nhung mềm mịn co dãn 4 chiều, ruột nhồi bên trong 100% là cao su non trắng tinh khiết loại 1, độ đàn hồi tốt, không gây ngứa, không rụng lông cực kỳ an toàn cho bé.",
-                size: 40,
-            },
-            {
-                id:2,
-                name_product: "Gối kê cổ bông chữ U quả bơ",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/81/38/65/60b8923fd4315eb8ca210b0b6872e44a.jpg",
-                product_code: "GB.A101.21335602",
-                material: "chất liệu vỏ nhung mềm mịn co dãn 4 chiều, ruột nhồi bên trong 100% là cao su non trắng tinh khiết loại 1, độ đàn hồi tốt, không gây ngứa, không rụng lông cực kỳ an toàn cho bé.",
-                size: 40,
-            },
-        ]
+        name_product: "Gấu bông hổ ôm bình sữa siêu dễ thương",
+        price: 150.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/87/7f/51/f28cd6d0b70a9f8069717de152b250e1.jpg",
+        product_code: "GB.A101.21000003",
+        material: "vỏ được làm từ vải co giãn 4 chiều mền mịn, không xù lông, không kích ứng",
+        size: 40,
     },
     {
         id:3,
-        name: "GẤU BÔNG VÀ CHĂN MỀN",
-        products: [
-            {
-                id:1,
-                name_product: "Bộ gấu gối mền 3 trong 1 chú khủng long đáng yêu",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/36/ac/ed/340ebe94aa07e7afbe98a8acb009a51c.png",
-                product_code: "GB.A101.21535201",
-                material: "Chăn mền bằng nhung nỉ 2 mặt dạng lông cừu siêu mềm mịn, an toàn khi sử dụng. Đặc biệt khi không dùng đến chăn mền bạn có thể gấp gọn và cất vào phần khóa sau mặt gối, rất gọn gàng.",
-                size: 40,
-            },
-        ]
+        name_product: "Gấu bông thỏ trắng ôm đào dễ thương",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/28/63/33/94ffd7a1c061b28ec4a0cb1fde6cb962.png",
+        product_code: "GB.A101.21000004",
+        material: "Sản phẩm được làm từ chất liệu vải mềm mịn, không xù lông đặc biệt không bay màu. Bông bên trong là bông trắng mềm mại và có độ đàn hồi tốt.",
+        size: 40,
+    },{
+        id:4,
+        name_product: "SET GẤU HÌNH THỎ KÈM CHĂN 3IN1",
+        price: 249.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/58/06/6b/26ca74c079523fb48208739ff1200047.jpg",
+        product_code: "GB.A103.23000009",
+        material: "Chất liệu vải an toàn, mềm mịn khi tiếp xúc. Gối được thiết kế xinh xắn với kiểu dáng ngộ nghĩnh dễ thương, có thể gối đầu hoặc dựa lưng êm ái.",
+        size: 45,
+    },
+    {
+        id:5,
+        name_product: "SET GẤU HÌNH CHUỘT KÈM CHĂN 2IN1",
+        price: 290.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/76/81/57/1d64345b30546e522668b843a831c60c.jpg",
+        product_code: "GB.A103.23000010",
+        material: " chất liệu thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 50,
+    },{
+        id:6,
+        name_product: "Mền Gối Gấu Bông Ngủ Hình Vịt Vàng Văn Phòng",
+        price: 284.200,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/24/6c/c2/c8b53ec3eb243ec24140b762a96c2415.jpg",
+        product_code: "GB.A103.23000002",
+        material: " thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 50,
+    },
+    {
+        id:7,
+        name_product: "Mền Gối Gấu Bông Hình Thỏ Hồng Ngủ Văn Phòng",
+        price: 275.500,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/d1/01/a2/2ffb852466b1fbcd0aea098fd9fbd12f.jpg",
+        product_code: "GB.A103.23000003",
+        material: "chất liệu  thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù, tạo cảm giác thoải mái thích thú khi sử dụng",
+        size: 60,
+    },
+    {
+        id:8,
+        name_product: " Gấu Bông Heo Hip Kèm Chăn Mền",
+        price: 169.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/83/7a/55/daaf39c2ede71ce80af7a73e5d093487.jpg",
+        product_code: "GB.A103.23000004",
+        material: " Vải nỉ nhung co dãn 4 chiều nhồi bông PP cao cấp, an toàn cho sức khỏe người dùng, vải nhung mềm mịn tạo cảm giác thoải mái khi ôm.",
+        size: 60,
+    },
+    
+]
+
+export const listBearCute = [
+    {
+        id:1,
+        name_product: "Gấu bông thỏ trắng ôm đào dễ thương",
+        price: 60.000,
+        img: "https://salt.tikicdn.com/ts/product/f9/e9/44/94fa03a83324cb3782497de7e3590151.jpg",
+        product_code: "GB.A101.21000001",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 40,
+    },
+    {
+        id:2,
+        name_product: "Gấu Bông Cute Khủng Long Má Hồng",
+        price: 160.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/e5/3c/d2/947f4eaf48cde00184d784c4b2626d2a.jpg",
+        product_code: "GB.A101.21000002",
+        material: "Vải Nhung co giãn 4 chiều, được nhồi bằng 100% bông gòn cao cấp trắng tinh khiết, với độ đàn hồi cao, KHÔNG BỊ XẸP tạo nên sự êm ái khi sử dụng",
+        size: 30,
+    },
+    {
+        id:3,
+        name_product: "Gấu bông hổ ôm bình sữa siêu dễ thương",
+        price: 150.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/87/7f/51/f28cd6d0b70a9f8069717de152b250e1.jpg",
+        product_code: "GB.A101.21000003",
+        material: "vỏ được làm từ vải co giãn 4 chiều mền mịn, không xù lông, không kích ứng",
+        size: 40,
     },
     {
         id:4,
-        name: "GẤU BÔNG KHÁC",
-        products: [
-            {
-                id:8,
-                name_product: "Bộ gấu gối mền 3 trong 1 chú khủng long đáng yêu",
-                price: 180.000,
-                img: "https://salt.tikicdn.com/cache/w1200/ts/product/36/ac/ed/340ebe94aa07e7afbe98a8acb009a51c.png",
-                product_code: "GB.A101.21535201",
-                material: "Chăn mền bằng nhung nỉ 2 mặt dạng lông cừu siêu mềm mịn, an toàn khi sử dụng. Đặc biệt khi không dùng đến chăn mền bạn có thể gấp gọn và cất vào phần khóa sau mặt gối, rất gọn gàng.",
-                size: 40,
-            },
-        ]
+        name_product: "Gấu bông thỏ trắng ôm đào dễ thương",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/28/63/33/94ffd7a1c061b28ec4a0cb1fde6cb962.png",
+        product_code: "GB.A101.21000004",
+        material: "Sản phẩm được làm từ chất liệu vải mềm mịn, không xù lông đặc biệt không bay màu. Bông bên trong là bông trắng mềm mại và có độ đàn hồi tốt.",
+        size: 40,
     },
-    
-    // {
-    //     id:5,
-    //     name_product: "Gấu bông",
-    //     price: 60.000,
-    //     img: "https://salt.tikicdn.com/ts/product/f9/e9/44/94fa03a83324cb3782497de7e3590151.jpg",
-    //     amount: 29,
-    //     product_code: "M.A101.21030201",
-    //     material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
-    //     size: 40,
-    //     category: "Teddy_difficult"
-    // },
-    
-    
-    
+    {
+        id:5,
+        name_product: "Gối kê cổ văn phòng gấu vàng",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/04/66/6c/56e9a718a1a7d8e91fc7203944271481.jpg",
+        product_code: "GB.A101.21000005",
+        material: "Sản phẩm được làm từ chất liệu vải mềm mịn, không xù lông đặc biệt không bay màu. Bông bên trong là bông trắng mềm mại và có độ đàn hồi tốt.",
+        size: 40,
+    },
+    {
+        id:6,
+        name_product: "Thú Bông Chó Shiba Hóa Trang Ngộ Nghĩnh Dễ Thương",
+        price: 60.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/08/f9/29/f46c5438a90372b5fdabd87394f3a212.jpg",
+        product_code: "GB.A101.21000006",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 25,
+    },
+    {
+        id:7,
+        name_product: "Gấu Bông Heo Mắt Tròn Niềm Vui Ngơ Ngác",
+        price: 150.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/d9/50/b1/fb715ba8c775dc77263efc99dece0811.jpg",
+        product_code: "GB.A101.21000007",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 40,
+    },
+    {
+        id:8,
+        name_product: "Gấu Bông Gối Ôm Chuột Ú Dễ Thương",
+        price: 126.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/97/3a/70/bdbc824c26ebaa6968cc1c66834643bf.jpg",
+        product_code: "GB.A101.21000008",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 45,
+    },
+    {
+        id:9,
+        name_product: "Gấu Bông Mèo Hoàng Thượng Đáng Yêu",
+        price: 219.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/f0/75/63/cb24ca1fa1db80563abe7008482e8bcd.jpg",
+        product_code: "GB.A101.21000009",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 40,
+    },
+    {
+        id:10,
+        name_product: "Gấu bông siêu to cỡ lớn siêu đẹp",
+        price: 1115.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/0e/80/75/274547c81bbe4d26049400dd7ce66f8b.jpg",
+        product_code: "GB.A101.21000010",
+        material: "Vải snowy kết hợp bông cao cấp mềm mại như đang tan chảy",
+        size: 160,
+    },
 ]
+
+export const listBearU = [
+    {
+        id:1,
+        name_product: "Gối kê cổ bông chữ U Totoro",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/13/05/a5/837755a2dc952d2eda62283052e4b464.jpg",
+        product_code: "GB.A101.25035251",
+        material: "chất liệu vỏ nhung mềm mịn co dãn 4 chiều, ruột nhồi bên trong 100% là cao su non trắng tinh khiết loại 1, độ đàn hồi tốt, không gây ngứa, không rụng lông cực kỳ an toàn cho bé.",
+        size: 40,
+    },
+    {
+        id:2,
+        name_product: "Gối kê cổ bông chữ U quả bơ",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/81/38/65/60b8923fd4315eb8ca210b0b6872e44a.jpg",
+        product_code: "GB.A101.21335602",
+        material: "chất liệu vỏ nhung mềm mịn co dãn 4 chiều, ruột nhồi bên trong 100% là cao su non trắng tinh khiết loại 1, độ đàn hồi tốt, không gây ngứa, không rụng lông cực kỳ an toàn cho bé.",
+        size: 40,
+    },
+]
+
+
+export const listBearBlanket = [
+    {
+        id:1,
+        name_product: "Bộ gấu gối mền 3 trong 1 chú khủng long đáng yêu",
+        price: 180.000,
+        img: "https://salt.tikicdn.com/cache/w1200/ts/product/36/ac/ed/340ebe94aa07e7afbe98a8acb009a51c.png",
+        product_code: "GB.A103.23000001",
+        material: "Chăn mền bằng nhung nỉ 2 mặt dạng lông cừu siêu mềm mịn, an toàn khi sử dụng. Đặc biệt khi không dùng đến chăn mền bạn có thể gấp gọn và cất vào phần khóa sau mặt gối, rất gọn gàng.",
+        size: 40,
+    },
+    {
+        id:2,
+        name_product: "Mền Gối Gấu Bông Ngủ Hình Vịt Vàng Văn Phòng",
+        price: 284.200,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/24/6c/c2/c8b53ec3eb243ec24140b762a96c2415.jpg",
+        product_code: "GB.A103.23000002",
+        material: " thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 50,
+    },
+    {
+        id:3,
+        name_product: "Mền Gối Gấu Bông Hình Thỏ Hồng Ngủ Văn Phòng",
+        price: 275.500,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/d1/01/a2/2ffb852466b1fbcd0aea098fd9fbd12f.jpg",
+        product_code: "GB.A103.23000003",
+        material: "chất liệu  thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù, tạo cảm giác thoải mái thích thú khi sử dụng",
+        size: 60,
+    },
+    {
+        id:4,
+        name_product: " Gấu Bông Heo Hip Kèm Chăn Mền",
+        price: 169.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/83/7a/55/daaf39c2ede71ce80af7a73e5d093487.jpg",
+        product_code: "GB.A103.23000004",
+        material: " Vải nỉ nhung co dãn 4 chiều nhồi bông PP cao cấp, an toàn cho sức khỏe người dùng, vải nhung mềm mịn tạo cảm giác thoải mái khi ôm.",
+        size: 60,
+    },
+    {
+        id:5,
+        name_product: "Mền Gối Gấu Bông Hinh Doraemon Ngủ Văn Phòng",
+        price: 195.020,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/72/b2/a7/d7a09131dadb963b37b92483a1c723e6.jpg",
+        product_code: "GB.A103.23000005",
+        material: "Chất liệu vải an toàn, mềm mịn khi tiếp xúc. Gối được thiết kế xinh xắn với kiểu dáng ngộ nghĩnh dễ thương, có thể gối đầu hoặc dựa lưng êm ái",
+        size: 45,
+    },
+    {
+        id:6,
+        name_product: "Mền Gối Gấu Bông Hình Mèo Hồng Ngủ Văn Phòng",
+        price: 189.050,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/db/15/2c/197cd49fc58694f6070a4c6af2f7a485.jpg",
+        product_code: "GB.A103.23000006",
+        material: "chất liệu  thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 45,
+    },
+    {
+        id:7,
+        name_product: "Gấu bông Hamster kèm mền 3 trong 5",
+        price: 240.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/6d/02/29/d8f93db034dff9cea9f4d0516b87b8ef.jpg",
+        product_code: "GB.A103.23000007",
+        material: "chất liệu vải và bông PP an toàn, mềm mại, tạo cảm giác dễ chịu, thoải mái khi tiếp xúc.",
+        size: 50,
+    },
+    {
+        id:8,
+        name_product: "Mền Gối Gấu Bông Ngủ Văn Phòng Lion",
+        price: 236.550,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/39/7e/54/375dafa8029267f4668029e840ba2025.jpg",
+        product_code: "GB.A103.23000008",
+        material: "chất liệu  thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 45,
+    },
+    {
+        id:9,
+        name_product: "SET GẤU HÌNH THỎ KÈM CHĂN 3IN1",
+        price: 249.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/58/06/6b/26ca74c079523fb48208739ff1200047.jpg",
+        product_code: "GB.A103.23000009",
+        material: "Chất liệu vải an toàn, mềm mịn khi tiếp xúc. Gối được thiết kế xinh xắn với kiểu dáng ngộ nghĩnh dễ thương, có thể gối đầu hoặc dựa lưng êm ái.",
+        size: 45,
+    },
+    {
+        id:10,
+        name_product: "SET GẤU HÌNH CHUỘT KÈM CHĂN 2IN1",
+        price: 290.000,
+        img: "https://salt.tikicdn.com/cache/750x750/ts/product/76/81/57/1d64345b30546e522668b843a831c60c.jpg",
+        product_code: "GB.A103.23000010",
+        material: " chất liệu thú được nhồi bông mềm mịn. Chăn với chất liệu vải bông mềm không xù.",
+        size: 50,
+    },
+]
+
 
 export const listUser = [
     {
@@ -129,6 +289,7 @@ export const listUser = [
         password: "mai123",
         email: "mai123@gmail.com",
         phone: "0378445647",
+        address: "Bình Dương",
         avatar: "https://haycafe.vn/wp-content/uploads/2022/03/Avatar-de-thuong-cute.jpg"
     },
     {
@@ -138,6 +299,41 @@ export const listUser = [
         password: "mai1234",
         email: "mai123@gmail.com",
         phone: "0378445647",
+        address: "Bình Dương",
         avatar: "https://haycafe.vn/wp-content/uploads/2022/03/Avatar-de-thuong-cute.jpg"
+    }
+]
+
+export const listBill = [
+    {
+        id: 1,
+        name: "Ngọc Mai",
+        phone: "0378445647",
+        email: "mai123@gmail.com",
+        address: "Bình Dương",
+        note: "",
+        cart : [
+            {
+                id: 1,
+                name_product: "Bộ gấu gối mền 3 trong 1 chú khủng long đáng yêu",
+                price: 180.000,
+                img: "https://salt.tikicdn.com/cache/w1200/ts/product/36/ac/ed/340ebe94aa07e7afbe98a8acb009a51c.png",
+                product_code: "GB.A101.21535201",
+                material: "Chăn mền bằng nhung nỉ 2 mặt dạng lông cừu siêu mềm mịn, an toàn khi sử dụng. Đặc biệt khi không dùng đến chăn mền bạn có thể gấp gọn và cất vào phần khóa sau mặt gối, rất gọn gàng.",
+                size: 40,
+                amount: 1
+            },
+            {
+                id: 2,
+                name_product: "Bộ gấu gối mền 3 trong 1 chú khủng long đáng yêu",
+                price: 180.000,
+                img: "https://salt.tikicdn.com/cache/w1200/ts/product/36/ac/ed/340ebe94aa07e7afbe98a8acb009a51c.png",
+                product_code: "GB.A101.21535201",
+                material: "Chăn mền bằng nhung nỉ 2 mặt dạng lông cừu siêu mềm mịn, an toàn khi sử dụng. Đặc biệt khi không dùng đến chăn mền bạn có thể gấp gọn và cất vào phần khóa sau mặt gối, rất gọn gàng.",
+                size: 40,
+                amount: 1
+            }
+        ],
+        sumbill: 360.000,
     }
 ]

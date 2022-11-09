@@ -1,4 +1,8 @@
-import { faCartArrowDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartArrowDown,
+  faCircleXmark,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,9 +12,8 @@ import ListCart from "../Cart/ListCart";
 import classNames from "classnames";
 
 function Header({
-  listProducts,
   setSearch,
-  onClick,
+  onClickSearch,
   count,
   cart,
   deleteItemCart,
@@ -20,6 +23,9 @@ function Header({
   Minus,
   onDeleteAccount,
   text,
+  onRemoveSearch,
+  search, 
+  display
 }) {
   // const [display, setDisplay] = useState(false);
   // useEffect(()=> {
@@ -31,17 +37,17 @@ function Header({
   //   }
   // }, [])
   // console.log(text)
-  const [display, setDisplay] = useState(false);
-  console.log(display)
+  const [none, setNone] = useState(false);
   useEffect(() => {
     var a = 0;
     cart.map(() => {
       a += 1;
     });
     if (a > 0) {
-      setDisplay(true);
-    } if (a=== 0) {
-      setDisplay(false);
+      setNone(true);
+    }
+    if (a === 0) {
+      setNone(false);
     }
   }, [cart]);
   return (
@@ -61,16 +67,29 @@ function Header({
                 </Link>
               </li>
               <li className="nav-item mx-2 dropdown">
-                <Link to="/login" className= {classNames({ display: display }, "nav-link")} >
+                <Link
+                  to="/login"
+                  className={classNames({ display: display }, "nav-link")}
+                >
                   {text}
                 </Link>
-                <Link  className= {classNames({ display: !display }, "nav-link nav-color dropdown_toggle")}>
+                <Link
+                  className={classNames(
+                    { display: !display },
+                    "nav-link nav-color dropdown_toggle"
+                  )}
+                  to="/account"
+                >
                   {text}
                   <div className="dropdown_menu">
-                   <button className="dropdown_item" onClick={()=>onDeleteAccount()}>Đăng xuất</button>
-                </div>
+                    <button
+                      className="dropdown_item"
+                      onClick={() => onDeleteAccount()}
+                    >
+                      Đăng xuất
+                    </button>
+                  </div>
                 </Link>
-                
               </li>
             </ul>
           </nav>
@@ -86,17 +105,24 @@ function Header({
           </div>
           <div className="col-7 m-auto">
             <div className="row">
-              <div className="col-9 p-0">
+              <div className="col-9 p-0 search-item">
                 <input
                   type="text"
-                  className="search-item"
+                  className="search-item-input"
                   width="100%"
-                  onChange={(e) => setSearch((prev) => prev = e.target.value)}
+                  onChange={(e) => setSearch((prev) => (prev = e.target.value))}
+                  value={search}
                 />
+                <div className="remove">
+                  <button className="btn-remove" onClick={onRemoveSearch}>
+                    <FontAwesomeIcon icon={faCircleXmark} />
+                  </button>
+                </div>
               </div>
+
               <div className="col-2 p-0">
-                <button className="btn-search" onClick={onClick}>
-                  <FontAwesomeIcon icon={faSearch} />
+                <button className="btn-search">
+                  <FontAwesomeIcon icon={faSearch} onClick={onClickSearch}/>
                 </button>
               </div>
             </div>
@@ -104,7 +130,7 @@ function Header({
           <div className="col-2 m-auto cart">
             <div className="btn-iconCart">
               <FontAwesomeIcon icon={faCartArrowDown} />
-              <div className={classNames({ display: !display }, "itemCart")}>
+              <div className={classNames({ display: !none }, "itemCart")}>
                 {cart.map((item, key) => (
                   <ListCart
                     key={key}
@@ -117,18 +143,16 @@ function Header({
                   />
                 ))}
                 <div className="pay">
-                <Link className="btn btn-primary btn-pay" to="/pay">
-                  Thanh toán
-                </Link>
+                  <Link className="btn btn-primary btn-pay" to="/pay">
+                    Thanh toán
+                  </Link>
                 </div>
-                
               </div>
             </div>
             <span className="count">{count}</span>
           </div>
         </div>
       </div>
-      
     </header>
   );
 }

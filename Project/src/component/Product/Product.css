@@ -61,17 +61,22 @@ label {
     background-color: #ffb0bd;
     border-radius: 9px;
     height: 2.4rem;
+    text-align: center;
 }
 
 .add .addto {
-    text-decoration: none;
+}
+
+.addto {
+    border: 0;
+    background-color: transparent;
 }
 
 .add .addto .pay {
     color: #ffff;
     text-align: center;
     font-size: 1.2rem;
-    margin-top: 0.4rem;
+    margin-top: 1rem;
 }
 
 .add:hover {

@@ -1,15 +1,18 @@
-import Product from "./Product";
-import Menu from "../Menu";
 import CartItem from "../Cart/CartItem";
+import Product from "../Product/Product";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css"
 
-function HomeProduct({ listProducts, Cart, itemProduct }) {
+function BearCute({ listBearCutes, Cart, itemProduct }) {
+
+
+
   return (
-    <>
-      <div className="container">
-      <div className="product__content mt-4">
+    <div className="container mt-4">
       <div className="row">
-        {listProducts.map((item, key) => (
-          <div className=" col-sm-12  col-md-4 col-lg-25" key={key}>
+        {listBearCutes.map((item, key) => (
+        
+          <div className="col-sm-12 col-md-4 col-lg-25" key={key}>
             <div className="product">
               <div className="product__content-image">
                 <img
@@ -34,9 +37,7 @@ function HomeProduct({ listProducts, Cart, itemProduct }) {
         ))}
       </div>
     </div>
-      </div>
-    </>
   );
 }
 
-export default HomeProduct;
+export default BearCute;

@@ -23,8 +23,8 @@ function ProductItem({ itemPro, deleteItem, Cart }) {
             X
           </button>
           <div className="item-pro">
-            {itemPro.map((item) => (
-              <div className="row">
+            {itemPro.map((item, key) => (
+              <div className="row" key={key}>
                 <div className="col-4">
                   <img
                     src={item.img}

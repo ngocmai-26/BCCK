@@ -1,14 +1,12 @@
-import Product from "./Product";
-import Menu from "../Menu";
 import CartItem from "../Cart/CartItem";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css"
 
-function HomeProduct({ listProducts, Cart, itemProduct }) {
+function BearBlankets({ listBearBlankets, Cart, itemProduct }) {
   return (
-    <>
-      <div className="container">
-      <div className="product__content mt-4">
+    <div className="container mt-4">
       <div className="row">
-        {listProducts.map((item, key) => (
+        {listBearBlankets.map((item, key) => (
           <div className=" col-sm-12  col-md-4 col-lg-25" key={key}>
             <div className="product">
               <div className="product__content-image">
@@ -34,9 +32,7 @@ function HomeProduct({ listProducts, Cart, itemProduct }) {
         ))}
       </div>
     </div>
-      </div>
-    </>
   );
 }
 
-export default HomeProduct;
+export default BearBlankets;

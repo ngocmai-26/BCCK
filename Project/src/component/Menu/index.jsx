@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Menu.css";
 
-function Menu({ data }) {
+function Menu() {
   return (
     <div className="nav">
       <div className="container">
@@ -17,11 +17,27 @@ function Menu({ data }) {
             </button>
             <div className="collapse navbar-collapse" id="mynavbar">
               <ul className="navbar-nav m-auto">
-                {data.map((item, key) => (
-                  <li className="nav-item" key={key}>
-                    <a href={"#" +item.id} className="nav-link">{item.name}</a>
-                  </li>
-                ))}
+                <li className="nav-item">
+                  <Link to="/" className="nav-link active">
+                    Trang chủ
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/bear-cute" className="nav-link active">
+                    Gấu bông Cute
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/bear-U" className="nav-link active">
+                    Gấu bông chữ U
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/bear-blankets" className="nav-link active">
+                    Gấu bông và chăn mềm
+                  </Link>
+                </li>
+
               </ul>
             </div>
           </div>

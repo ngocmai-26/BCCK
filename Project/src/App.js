@@ -1,10 +1,15 @@
 import logo from './logo.svg'
 import './App.css'
 import { useEffect, useState } from 'react'
-import { listProduct, listUser } from './data.js'
+import {
+  listBearBlanket,
+  listBearCute,
+  listBearU,
+  listBill,
+  listProduct,
+  listUser,
+} from './data.js'
 import Menu from './component/Menu'
-import Product from './component/Product/Product'
-import RouterDemo from './Router'
 import Pay from './component/Product/Pay'
 import ProductItem from './productItem'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,13 +19,25 @@ import HomeProduct from './component/Product/HomeProduct'
 import Login from './User/Login'
 import Register from './User/Register'
 import validator from 'validator'
+import BearCute from './component/Body/BearCute'
+import BearBlankets from './component/Body/BearBlankets'
+import BearU from './component/Body/BearU'
+import Account from './User/Account'
+import ForgetPass from './User/FogetPass'
+import Footer from './component/Footer/footer'
 
 function App() {
   const [listProducts, setListProduct] = useState(listProduct)
-  const [listMenu, setMenu] = useState(listProduct)
   const [listUsers, setUser] = useState(listUser)
-  const [a, setA] = useState(listUser)
+  const [listBearCutes, setBearCute] = useState(listBearCute)
+  const [listBearUs, setBearU] = useState(listBearU)
+  const [listBearBlankets, setBearBlankets] = useState(listBearBlanket)
+  const [bills, setBill] = useState(listBill)
+
+
+  
   const [cart, setCart] = useState([])
+  const [account, setAccount] = useState([])
   const [search, setSearch] = useState('')
   const [itemPro, setItemPro] = useState([])
   const [count, setCount] = useState(0)
@@ -32,8 +49,11 @@ function App() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
+  const [note, setNote] = useState('')
   const [text, setText] = useState('Đăng nhập')
   const [display, setDisplay] = useState(false)
+  const [sumPrice, setSumPrice] = useState(0)
 
   const [error, setError] = useState({
     isErrorUserName: false,
@@ -111,13 +131,13 @@ function App() {
     }
   }
 
-
   const onClickSubmit = () => {
     listUsers.filter((el) => {
       if (el.username === username) {
         if (error.isErrPasswordLogin === false) {
           setText(el.name)
           setDisplay(true)
+          setAccount(el)
         }
         if (el.password !== password) {
           return setError(
@@ -137,8 +157,7 @@ function App() {
               messageErrPasswordLogin: '',
             }),
         )
-        
-      } 
+      }
       // else if(el.username !== username) {
       //   alert('ádsa')
       //   // return setError(
@@ -163,34 +182,40 @@ function App() {
     })
   }
 
-
   const onDeleteAccount = () => {
     setText('Đăng nhập')
     setDisplay(false)
   }
+
   //Xử lý trong giỏ hàng
   const Plus = (item) => {
-    var a = cart.filter((x) =>
+    var plus = cart.filter((x) =>
       x.name_product === item.name_product ? (x.amount += 1) : x.amount,
     )
-    setCart(a)
+    setCart(plus)
   }
 
   const Minus = (item) => {
-    var a = cart.filter((x) =>
+    var minus = cart.filter((x) =>
       x.name_product === item.name_product ? (x.amount -= 1) : x.amount,
     )
-    setCart(a)
+    setCart(minus)
   }
   const Cart = (item) => {
-    setCart([
-      ...cart,
-      {
-        ...item,
-        amount,
-      },
-    ])
-
+    var check_cart = cart.filter((a) => a.name_product === item.name_product)
+    if (check_cart.length === 0 ) {
+      setCart([
+        ...cart,
+        {
+          ...item,
+          amount,
+        },
+      ])
+    } else {
+      check_cart.map((item)=> {
+        item.amount +=1
+      })
+    }
     setCount(count + 1)
   }
 
@@ -211,39 +236,103 @@ function App() {
     setItemPro([item])
   }
 
-  console.log(search)
-
-  const onClick = () => {
-    let resultSearch = [];
-    const result = listProduct.filter((el, index) => {
-      const resultFindProduct = el.products.filter((item) => {
-        if (item.name_product === search ) {        
-            if(!resultSearch[index]) {
-                resultSearch[index] = {}
-                resultSearch[index].products = []
-            }
-          resultSearch[index].products = resultSearch[index]?.products?.concat([item])
-        }if (item.name_product !== search) {
-          setListProduct(listProducts)
-        }
-        return item.name_product === search;
-      });
-      if (resultFindProduct.length > 0) {
-        resultSearch[index].id = el.id;
-        resultSearch[index].name = el.name;
-        return true;
-      }
-      return false;
-    });
-    if(result.length === 0) {
-      setListProduct(listProduct)
-    } else {
-      setListProduct(resultSearch)
-    }
-    console.log(result.length)
-    console.log(listProducts)
+  const onClickSearch = () => {
+    console.log(search)
+    const result = listProducts.filter((el)=> el.name_product=== search)
+    setListProduct(result)
+    // let resultSearch = []
+    // const result = listProduct.filter((el, index) => {
+    //   const resultFindProduct = el.products.filter((item) => {
+    //     if (item.name_product === search) {
+    //       if (!resultSearch[index]) {
+    //         resultSearch[index] = {}
+    //         resultSearch[index].products = []
+    //       }
+    //       resultSearch[index].products = resultSearch[index]?.products?.concat([
+    //         item,
+    //       ])
+    //     }
+    //     if (item.name_product !== search) {
+    //       setListProduct(listProducts)
+    //     }
+    //     return item.name_product === search
+    //   })
+    //   if (resultFindProduct.length > 0) {
+    //     resultSearch[index].id = el.id
+    //     resultSearch[index].name = el.name
+    //     return true
+    //   }
+    //   return false
+    // })
+    // if (result.length === 0) {
+    //   setListProduct(listProduct)
+    // } else {
+    //   setListProduct(resultSearch)
+    // }
   }
 
+  const onRemoveSearch = () => {
+    setListProduct(listProduct)
+    setSearch('')
+    console.log(search)
+  }
+
+  const onClickPay = () => {
+    var id = bills.length
+    listBill.map((item) => {
+      return (id += 1)
+    })
+    console.log(validator.isEmail(email))
+    if (validator.isEmail(email) === false) {
+      return setError(
+        (pre) =>
+          (pre = {
+            ...pre,
+            isErrorEmail: true,
+            messageErrorEmail: 'Email không chính xác',
+          }),
+      )
+    } else if (validator.isEmail(email) !== false) {
+      return setError(
+        (pre) =>
+          (pre = {
+            ...pre,
+            isErrorEmail: false,
+            messageErrorEmail: '',
+          }),
+      )
+    }
+    if (
+      name !== '' &&
+      phone !== '' &&
+      email !== '' &&
+      address !== '' &&
+      error.isErrorEmail === false &&
+      sumPrice !== 0
+    ) {
+      setBill([
+        ...bills,
+        {
+          id,
+          name,
+          phone,
+          email,
+          address,
+          note,
+          cart,
+          sumPrice,
+        },
+      ])
+    }
+  }
+
+  var price = 0
+  useEffect(() => {
+    cart.map((item) => {
+      price += item.amount * item.price
+      setSumPrice(price)
+    })
+  }, [cart])
 
   return (
     <div className="App">
@@ -251,7 +340,7 @@ function App() {
         <Header
           listProducts={listProducts}
           setSearch={setSearch}
-          onClick={onClick}
+          onClickSearch={onClickSearch}
           count={count}
           cart={cart}
           deleteItemCart={deleteItemCart}
@@ -262,8 +351,10 @@ function App() {
           onDeleteAccount={onDeleteAccount}
           text={text}
           display={display}
+          onRemoveSearch={onRemoveSearch}
+          search={search}
         />
-        <Menu data={listMenu} />
+        <Menu />
         <Routes>
           <Route
             path="/"
@@ -302,11 +393,57 @@ function App() {
               />
             }
           />
-          <Route path="/pay" element={<Pay cart={cart} />} />
+          <Route
+            path="/pay"
+            element={
+              <Pay
+                cart={cart}
+                error={error}
+                setEmail={setEmail}
+                setPhone={setPhone}
+                setName={setName}
+                setAddress={setAddress}
+                setNote={setNote}
+                onClickPay={onClickPay}
+                sumPrice={sumPrice}
+              />
+            }
+          />
+          <Route
+            path="/bear-cute"
+            element={
+              <BearCute
+                listBearCutes={listBearCutes}
+                Cart={Cart}
+                itemProduct={itemProduct}
+              />
+            }
+          />
+          <Route
+            path="/bear-U"
+            element={
+              <BearU
+                listBearUs={listBearUs}
+                Cart={Cart}
+                itemProduct={itemProduct}
+              />
+            }
+          />
+          <Route
+            path="/bear-blankets"
+            element={
+              <BearBlankets
+                listBearBlankets={listBearBlankets}
+                Cart={Cart}
+                itemProduct={itemProduct}
+              />
+            }
+          />
+          <Route path='/account' element={<Account account={account}/>} />
+          <Route path='/forget_password' element={<ForgetPass />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
-
-      {/* <Menu data={listProducts} /> */}
 
       <ProductItem itemPro={itemPro} deleteItem={deleteItem} Cart={Cart} />
     </div>
