@@ -7,9 +7,9 @@
 }
 .dropdown_toggle .dropdown_menu {
     position: absolute;
-    margin: 10px 0;
+    margin: 5px 0;
     background-color: #ffbbcc;
-    padding: 0px 0px;
+    padding: 5px 0px;
     width: 100%;
     text-align: center;
     border: 2px solid #ff8fab;

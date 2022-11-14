@@ -14,7 +14,6 @@ import classNames from "classnames";
 function Header({
   setSearch,
   onClickSearch,
-  count,
   cart,
   deleteItemCart,
   setAmount,
@@ -22,21 +21,24 @@ function Header({
   Plus,
   Minus,
   onDeleteAccount,
-  text,
   onRemoveSearch,
   search, 
-  display
+  display,
+  account
 }) {
-  // const [display, setDisplay] = useState(false);
-  // useEffect(()=> {
-  //   if(account.length >0) {
-  //     account.map((item)=> setText(item.name))
 
-  //   } else {
-  //     setText("Đăng nhập")
-  //   }
-  // }, [])
-  // console.log(text)
+  var text = ''
+  
+  if(account.length === 0 ) {
+    text = "ĐĂNG NHẬP"
+  } else {
+    text = account.map((item) => item.name)
+  }
+  
+ var count= 0 
+  cart.map((item)=> {
+    count +=1
+  })
   const [none, setNone] = useState(false);
   useEffect(() => {
     var a = 0;

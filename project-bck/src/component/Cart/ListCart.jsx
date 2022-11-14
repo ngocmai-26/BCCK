@@ -4,7 +4,7 @@ function ListCart({ item, deleteItemCart, setAmount, amount, Plus, Minus }) {
   return (
     <div className="cart-product">
       <div className="row">
-        <div className="image col-3">
+        <div className="image col-4">
           <img
             src={item.img}
             alt={item.name_product}
@@ -33,7 +33,7 @@ function ListCart({ item, deleteItemCart, setAmount, amount, Plus, Minus }) {
             </button>
           </div>
         </div>
-        <div className="col-2">
+        <div className="col-1">
           <button
             className="remove-product"
             onClick={() => deleteItemCart(item)}

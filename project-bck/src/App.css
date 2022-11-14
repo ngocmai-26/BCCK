@@ -519,16 +519,19 @@ label span {
 
 .image img {
   width: 100px;
-  margin-top: 50px;
+  margin: 10px 0;
 }
 
 .image h5 {
   margin-top: 50px;
 }
 
-.image {
-  margin-bottom: 2rem;
+.btn-cartItem span {
+  font-size: 1.4rem;
 }
+
+
+
 
 .content img {
   width: 18px;

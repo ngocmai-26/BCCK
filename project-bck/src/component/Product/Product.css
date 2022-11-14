@@ -65,6 +65,8 @@ label {
 }
 
 .add .addto {
+    width: 100%;
+    cursor: pointer;
 }
 
 .addto {
@@ -76,7 +78,7 @@ label {
     color: #ffff;
     text-align: center;
     font-size: 1.2rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .add:hover {
@@ -89,9 +91,26 @@ label {
 
 .text {
     text-decoration: none;
-    
+
 }
 
 .clearfix {
     padding: 5px 0;
+}
+
+.successful {
+    display: none;
+}
+
+.noClick {
+    background-color: #e0e0e0;
+}
+
+.noClick .addto {
+    cursor: default;
+
+}
+
+.noClick:hover {
+    background-color: #e0e0e0;
 }

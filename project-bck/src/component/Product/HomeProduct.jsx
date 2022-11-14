@@ -1,4 +1,4 @@
-import Product from "./Product";
+
 import Menu from "../Menu";
 import CartItem from "../Cart/CartItem";
 

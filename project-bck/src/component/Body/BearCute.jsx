@@ -1,5 +1,4 @@
 import CartItem from "../Cart/CartItem";
-import Product from "../Product/Product";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css"
 

@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import "./Product.css";import styled from "styled-components";
+import classNames from "classnames";
 
 const ErrorText = styled.div`
   color: red;
   text-align: start;
 `;
 
-function Pay({ cart, onClickPay, setName, setPhone, setEmail, setAddress, setNote, sumPrice, error }) {
+function Pay({ cart, onClickPay, setName, setPhone, setEmail, setAddress, setNote, sumPrice, error, successful, noClick }) {
 
 
 
   return (
     <>
       <div className="checkout-page container sty-none">
+        <div className={classNames({successful: successful})}>Đặt hàng thành công</div>
         <div className="formCheckOut formAcount validate">
           <div className="row">
             <div className="col-checkout col-left col-xl-5 col-lg-6 col-12 ">
@@ -134,10 +136,10 @@ function Pay({ cart, onClickPay, setName, setPhone, setEmail, setAddress, setNot
 
               <div className="row">
                 <div className="col-lg-8 col-md-10"></div>
-                <div className="add col-lg-4 col-md-2">
+                <div className={classNames({noClick: noClick}, "add col-lg-4 col-md-2")}>
                   <button
-                    className="addto"
-                    onClick={onClickPay}
+                    className="addto" width="100%"
+                    onClick={onClickPay} disabled={noClick} type="button"
                   >
                     <h4 className="pay text-center">Đặt Hàng</h4>
                   </button>
