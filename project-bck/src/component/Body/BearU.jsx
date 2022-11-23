@@ -23,7 +23,7 @@ function BearU({listBearUs, Cart, itemProduct}) {
                 <span>{item.name_product}</span>
               </div>
               <div className="product__content-price">
-                <span>{item.price} đ</span>
+                <span>${item.price}</span>
               </div>
               <div className="product__content-btn">
                 <CartItem item={item} Cart={Cart} itemProduct={itemProduct} />

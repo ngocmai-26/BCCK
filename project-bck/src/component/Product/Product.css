@@ -30,21 +30,25 @@ label {
     color: #ffb0bd;
 }
 
-.input-group-btn {
+.btn-voucher {
     background-color: #ffb0bd;
-    border-radius: 8px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
     margin-left: 1%;
+    width: 100px;
+    height: 38px;
+    border: none;
 }
 
-.input-group-btn .btn {
+.input-group-btn .btn-voucher {
     color: white;
 }
 
-.input-group-btn:hover {
+.btn-voucher:hover {
     background-color: rgb(247, 164, 189);
 }
 
-.input-group-btn .btn:hover {
+.input-group-btn .btn-voucher:hover {
     color: white;
 }
 
@@ -114,3 +118,30 @@ label {
 .noClick:hover {
     background-color: #e0e0e0;
 }
+
+.validate.form-control {
+    height: 38px;
+}
+
+.validate.form-control:focus {
+    outline: none;
+    box-shadow: none
+}
+
+.btn-voucher:active {
+    color: #e0e0e0;
+    border: none;
+}
+.btn-voucher:focus-visible {
+    color: #e0e0e0;
+
+}
+
+.successfuls {
+    background-color: #52b657;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  

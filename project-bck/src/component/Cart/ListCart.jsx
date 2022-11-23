@@ -20,7 +20,7 @@ function ListCart({ item, deleteItemCart, setAmount, amount, Plus, Minus }) {
             <span>{item.product_code}</span>
           </div>
           <div className="cart__product-price">
-            <span>Giá: {item.price} đ</span>
+            <span>Giá: $ {item.price}</span>
           </div>
           <div className="btn-cartItem">
             <button onClick={() => Minus (item)} className="cartItem-btn">

@@ -6,8 +6,10 @@ import {
   listBearCute,
   listBearU,
   listBill,
+  listComment,
   listProduct,
   listUser,
+  listVoucher,
 } from './data.js'
 import Menu from './component/Menu'
 import Pay from './component/Product/Pay'
@@ -25,6 +27,7 @@ import BearU from './component/Body/BearU'
 import Account from './User/Account'
 import Footer from './component/Footer/footer'
 import { PATH_ROUTER } from './constant'
+import Support from './Support'
 
 function App() {
   //Các useState và localStorage
@@ -33,9 +36,13 @@ function App() {
   const [listBearCutes, setBearCute] = useState([])
   const [listBearUs, setBearU] = useState([])
   const [listBearBlankets, setBearBlankets] = useState([])
+  const [listComments, setListComments] = useState(listComment)
   const [bills, setBill] = useState(listBill)
   const [cart, setCart] = useState([])
   const [account, setAccount] = useState([])
+  const [voucher, setVoucher] = useState(0)
+  const [listVouchers, setListVouchers] = useState(listVoucher)
+  const [textVoucher, setTextVoucher] = useState('')
 
   const [search, setSearch] = useState('')
   const [itemPro, setItemPro] = useState([])
@@ -54,6 +61,8 @@ function App() {
   const [successful, setSuccessful] = useState(true)
   const [noClick, setNoClick] = useState(false)
   const [sumPrice, setSumPrice] = useState(0)
+  const [provisionals, setProvisional] = useState(0)
+  const [comment, setComment] = useState('')
 
   //Lấy dữ liệu về từ trong localStorage
   useEffect(() => {
@@ -61,18 +70,20 @@ function App() {
     const listUsers = JSON.parse(localStorage.getItem('listUsers'))
     const listBearCutes = JSON.parse(localStorage.getItem('listBearCutes'))
     const listBearUs = JSON.parse(localStorage.getItem('listBearUs'))
+    const listVoucher = JSON.parse(localStorage.getItem('listVouchers'))
     const listBearBlankets = JSON.parse(
       localStorage.getItem('listBearBlankets'),
     )
     const account = JSON.parse(localStorage.getItem('account'))
-    setAccount(account)
+    if (account) {
+      setAccount(account)
+    }
     const cart = JSON.parse(localStorage.getItem('cart'))
+    setCart(cart)
     if (listProducts) {
       setListProduct(listProducts)
     }
-    if (cart) {
-      setCart(cart)
-    }
+
     if (listUsers) {
       setUser(listUsers)
     }
@@ -93,7 +104,19 @@ function App() {
     localStorage.setItem('listBearCutes', JSON.stringify(listBearCute))
     localStorage.setItem('listBearUs', JSON.stringify(listBearU))
     localStorage.setItem('listBearBlankets', JSON.stringify(listBearBlanket))
-  }, [listProducts, listUsers, listBearCutes, listBearUs, listBearBlankets])
+    localStorage.setItem('bills', JSON.stringify(bills))
+    localStorage.setItem('account', JSON.stringify(account))
+  }, [
+    listProducts,
+    listUsers,
+    listBearCutes,
+    listBearUs,
+    listBearBlankets,
+    bills,
+    account,
+  ])
+
+  console.log(account)
 
   //set các error cho các form
 
@@ -101,19 +124,28 @@ function App() {
     isErrorUserName: false,
     isErrorPassword: false,
     isErrorEmail: false,
+    isErrorEmailPay: false,
+    isErrorPhone: false,
+    isErrorPhonePay: false,
     isErrUsernameLogin: false,
     isErrPasswordLogin: false,
+    isName: false,
+    isAddress: false,
     messageErrorUserName: '',
     messageErrorEmail: '',
+    messageErrorEmailPay: '',
     messageErrorPassword: '',
     messageErrUsernameLogin: '',
     messageErrPasswordLogin: '',
+    messageErrPhonePay: '',
+    messageErrPasswordLogin: '',
+    messageErrNamePay: '',
+    messageErrAddressPay: '',
   })
 
   //Bắt sự thay đổi của account
   useEffect(() => {
-    var a = JSON.parse(localStorage.getItem('account'))
-    if (a.length === 0) {
+    if (account.length === 0) {
       setDisplay(false)
     } else {
       setDisplay(true)
@@ -148,25 +180,61 @@ function App() {
           messageErrorEmail: '',
         }),
     )
-  }, [email, passwordRegis])
+  }, [email, passwordRegis, account])
 
   //Đăng ký
   const onClickRegister = () => {
     var id = 1
-    listUsers.map((item) => {
+    listUsers.map(() => {
       return (id += 1)
     })
+    const emailExists = listUsers.filter((item) => item.email === email)
+    const usernameExists = listUsers.filter((item) => item.email === email)
+    console.log(usernameExists)
+    if (emailExists.length > 0) {
+      alert('email đăng kí đã tồn tại')
+    }
+    if (usernameExists.length > 0) {
+      alert('tên đăng nhập đã được sử dụng')
+    }
+
     if (!validator.isEmail(email)) {
       return setError(
         (pre) =>
           (pre = {
             ...pre,
             isErrorEmail: true,
-            messageErrorEmail: 'Email không chính xác',
+            messageErrorEmail: 'Email đang bị lỗi nè bạn ơi',
           }),
       )
     }
-    if (error.isErrorPassword === false && error.isErrorEmail === false) {
+    let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g
+    if (!vnf_regex.test(phone)) {
+      return setError(
+        (pre) =>
+          (pre = {
+            ...pre,
+            isErrorPhone: true,
+            messageErrPhone: 'Số điện thoại đang bị lỗi nè bạn ơi',
+          }),
+      )
+    } else if (vnf_regex.test(phone)) {
+      return setError(
+        (pre) =>
+          (pre = {
+            ...pre,
+            isErrorPhone: false,
+            messageErrPhone: '',
+          }),
+      )
+    }
+    if (
+      error.isErrorPassword === false &&
+      error.isErrorEmail === false &&
+      emailExists.length === 0 &&
+      usernameExists.length === 0 &&
+      error.isErrorPhone === false
+    ) {
       setUser([
         ...listUsers,
         {
@@ -322,7 +390,6 @@ function App() {
     setSearch('')
   }
 
-
   //Thanh toán đơn hàng
   const onClickPay = () => {
     var id = bills.length
@@ -334,7 +401,8 @@ function App() {
       phone !== '' &&
       email !== '' &&
       address !== '' &&
-      error.isErrorEmail === false &&
+      error.isErrorEmailPay === false &&
+      // error.isErrorPhonePay === false &&
       sumPrice !== 0
     ) {
       setBill([
@@ -353,15 +421,37 @@ function App() {
       setSuccessful(false)
       setCart([])
       setSumPrice(0)
+      setProvisional(0)
     }
+    // let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g
+    // console.log(vnf_regex.test(phone))
+    // if (vnf_regex.test(phone) === false) {
+    //   return setError(
+    //     (pre) =>
+    //       (pre = {
+    //         ...pre,
+    //         isErrorPhonePay: true,
+    //         messageErrPhonePay: 'Số điện thoại đang bị lỗi nè bạn ơi',
+    //       }),
+    //   )
+    // } else if (vnf_regex.test(phone) === true) {
+    //   return setError(
+    //     (pre) =>
+    //       (pre = {
+    //         ...pre,
+    //         isErrorPhonePay: false,
+    //         messageErrPhonePay: '',
+    //       }),
+    //   )
+    // }
 
     if (validator.isEmail(email) === false) {
       return setError(
         (pre) =>
           (pre = {
             ...pre,
-            isErrorEmail: true,
-            messageErrorEmail: 'Email không chính xác',
+            isErrorEmailPay: true,
+            messageErrorEmailPay: 'Email không chính xác đang bị lỗi nè bạn ơi',
           }),
       )
     } else if (validator.isEmail(email) !== false) {
@@ -369,35 +459,100 @@ function App() {
         (pre) =>
           (pre = {
             ...pre,
-            isErrorEmail: false,
-            messageErrorEmail: '',
+            isErrorEmailPay: false,
+            messageErrorEmailPay: '',
           }),
       )
     }
   }
-  var price = 0
+  let price = 0
+  let provisional = 0
   useEffect(() => {
-    var cart = JSON.parse(localStorage.getItem('cart'))
+    let cart = JSON.parse(localStorage.getItem('cart'))
     cart.map((item) => {
-      price += item.amount * item.price
-      setSumPrice(price)
+      price += item.amount * item.price - voucher
+      provisional += item.amount * item.price
+      setSumPrice(price.toFixed(2))
+      setProvisional(provisional)
     })
     if (cart.length === 0) {
       setNoClick(true)
     } else {
       setNoClick(false)
     }
-  }, [cart])
+  }, [cart, voucher])
 
   useEffect(() => {
     localStorage.setItem('bills', JSON.stringify(bills))
   }, [bills])
 
+  ///Voucher
+  const onClickVoucher = () => {
+    const listVoucher = JSON.parse(localStorage.getItem('listVoucher'))
+    const codeVoucher = listVoucher.filter((item) => item.code === textVoucher)
+    if (codeVoucher.length > 0) {
+      codeVoucher.map((item) => {
+        if (item.amount > 0) {
+          setVoucher(item.value)
+          item.amount = item.amount - 1
+        } else {
+          setVoucher(0)
+          alert('đã hết voucher áp dụng')
+        }
+      })
+    } else {
+      alert('Voucher không tồn tại hoặc đã quá hạn')
+    }
+    setListVouchers(listVoucher)
+  }
 
+  //Lưu giỏ hàng
+  useEffect(() => {
+    localStorage.setItem('listVoucher', JSON.stringify(listVouchers))
+  }, [listVouchers])
+
+  //Comment
+  const onClickComment = () => {
+    let id = 1
+    listComments.map(() => {
+      return (id += 1)
+    })
+    if (account.length === 0) {
+      const avatar =
+        'https://live.staticflickr.com/491/31818797506_41e52a8b36.jpg'
+      const name = 'Khách hàng'
+      console.log(avatar, name, comment)
+      setListComments([
+        ...listComments,
+        {
+          id,
+          name,
+          avatar,
+          comment,
+        },
+      ])
+    } else {
+      let name
+      let avatar
+      account.map((item) => {
+        name = item.name
+        avatar = item.avatar
+      })
+      setListComments([
+        ...listComments,
+        {
+          id,
+          name,
+          avatar,
+          comment,
+        },
+      ])
+    }
+    console.log(listComments)
+  }
   //Trả về giao diện
   return (
     <div className="App">
-
       {/* Header bao gồm đăng nhập đăng kí search giỏ hàng */}
       <Header
         listProducts={listProducts}
@@ -432,7 +587,16 @@ function App() {
             />
           }
         />
-        <Route path="/support" />
+        <Route
+          path={PATH_ROUTER.SUPPORT}
+          element={
+            <Support
+              listComments={listComments}
+              setComment={setComment}
+              onClickComment={onClickComment}
+            />
+          }
+        />
         <Route
           path={PATH_ROUTER.LOGIN}
           element={
@@ -474,6 +638,10 @@ function App() {
               sumPrice={sumPrice}
               successful={successful}
               noClick={noClick}
+              setTextVoucher={setTextVoucher}
+              onClickVoucher={onClickVoucher}
+              voucher={voucher}
+              provisionals={provisionals}
             />
           }
         />

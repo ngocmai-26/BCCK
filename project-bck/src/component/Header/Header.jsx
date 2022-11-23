@@ -27,7 +27,8 @@ function Header({
   account
 }) {
 
-  var text = ''
+
+  let text = ''
   
   if(account.length === 0 ) {
     text = "ĐĂNG NHẬP"
@@ -35,20 +36,20 @@ function Header({
     text = account.map((item) => item.name)
   }
   
- var count= 0 
+ let count= 0 
   cart.map((item)=> {
     count +=1
   })
   const [none, setNone] = useState(false);
   useEffect(() => {
-    var a = 0;
+    let total = 0;
     cart.map(() => {
-      a += 1;
+      total += 1;
     });
-    if (a > 0) {
+    if (total > 0) {
       setNone(true);
     }
-    if (a === 0) {
+    if (total === 0) {
       setNone(false);
     }
   }, [cart]);
@@ -58,11 +59,6 @@ function Header({
         <div className="container">
           <nav className="navbar sticky-100 nav-expand-md justify-content-end">
             <ul className="navbar-nav d-flex flex-row flex-wrap">
-              <li className="nav-item mx-2">
-                <Link to="/" className="nav-link">
-                  Thông báo
-                </Link>
-              </li>
               <li className="nav-item mx-2">
                 <Link to="/support" className="nav-link">
                   Hỗ Trợ

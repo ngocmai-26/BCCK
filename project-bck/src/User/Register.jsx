@@ -65,6 +65,11 @@ function Register({
                   placeholder="Số điện thoại"
                   onChange={(e) => setPhone((prev) => (prev = e.target.value))}
                 />
+                {error.isErrorPhone && (
+                  <ErrorText className="form-text danger">
+                    {error.messageErrPhone}
+                  </ErrorText>
+                )}
               </div>
               <div className="username">
                 <input

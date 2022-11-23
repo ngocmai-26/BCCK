@@ -40,7 +40,7 @@ function ProductItem({ itemPro, deleteItem, Cart }) {
                   <p>{item.product_code}</p>
                   <div className="price_productItem">
                     <span>Giá: </span>
-                    <span>{item.price}</span>
+                    <span>$ {item.price}</span>
                   </div>
                   <button className="btn-product" onClick={() => Cart(item)}>
                     Thêm vào giỏ
